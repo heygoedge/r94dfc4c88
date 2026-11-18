@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN" data-focus="3d"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Heygo"><meta name="application-name" content="Heygo">
+<meta name="format-detection" content="telephone=no,email=no,address=no"><meta name="theme-color" content="#eef5fa">
+<meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
+<link rel="apple-touch-icon" href="icon-180.png"><link rel="icon" href="icon-180.png"><link rel="manifest" href="manifest.json">
+<title>Heygo</title>
+<style>
+html,body{margin:0;height:100%;background:#eef5fa}
+#app-splash{position:fixed;inset:0;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:linear-gradient(180deg,#dbe7f1 0%,#eef5fa 55%,#f6fafc 100%);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Helvetica Neue",sans-serif;color:#12314a;transition:opacity .5s ease,visibility 0s linear .5s;-webkit-user-select:none;user-select:none}
+#app-splash img{width:88px;height:88px;border-radius:21px;box-shadow:0 14px 34px rgba(24,58,88,.22),0 2px 6px rgba(24,58,88,.12)}
+#app-splash strong{font-size:22px;font-weight:700;letter-spacing:.01em;margin-top:4px}
+#app-splash p{margin:0;font-size:13px;color:#6b8598}
+#app-splash .bar{width:132px;height:4px;border-radius:2px;background:rgba(47,111,152,.16);overflow:hidden;margin-top:10px}
+#app-splash .bar i{display:block;width:40%;height:100%;border-radius:2px;background:#2f6f98;animation:splash-slide 1.15s cubic-bezier(.45,0,.55,1) infinite alternate}
+#app-splash button{display:none;margin-top:6px;min-width:120px;min-height:44px;padding:0 22px;border:0;border-radius:22px;background:#2f6f98;color:#fff;font:600 15px/1 inherit;font-family:inherit}
+#app-splash.is-error .bar{display:none}#app-splash.is-error button{display:block}
+html.app-ready #app-splash{opacity:0;visibility:hidden;pointer-events:none}
+@keyframes splash-slide{from{transform:translateX(-20%)}to{transform:translateX(170%)}}
+</style>
+<link rel="stylesheet" href="app.css?v=20261118a"><link rel="stylesheet" href="scores.css?v=20261118a"><link rel="stylesheet" href="app-shell.css?v=20261118a">
+<script src="focus-3d.js?v=20261118a"></script></head>
+<body class="show-detail score-demo">
+<div id="app-splash" role="status" aria-live="polite"><img src="icon-180.png" alt="" width="88" height="88"><strong>Heygo</strong><div class="bar"><i></i></div><p data-splash-text>正在载入滑行数据…</p><button type="button" data-splash-retry>重新载入</button></div>
+<header class="app-nav"><h1>滑行轨迹</h1></header>
+<div class="app-shell"><main><section id="detail-page" aria-label="滑行轨迹三维回放"><div id="hg-turn-demo"><section class="hg-mean-section"><div class="hm-columns"></div></section></div></section></main></div>
+<dialog id="score-rules"></dialog>
+<script>
+(function(){var s=document.getElementById('app-splash'),t=s.querySelector('[data-splash-text]');
+ window.HG_SPLASH_FAIL=function(m){if(document.documentElement.classList.contains('app-ready'))return;s.classList.add('is-error');t.textContent=m||'载入失败，请检查网络后重试';};
+ s.querySelector('[data-splash-retry]').addEventListener('click',function(){location.reload();});
+ window.addEventListener('error',function(e){if(e.target&&e.target.tagName==='SCRIPT')window.HG_SPLASH_FAIL();},true);
+})();
+</script>
+<script src="slope-view.js?v=20261118a"></script><script src="initial-view.js?v=20261118a"></script><script src="mean-turn-model.js?v=20261118a"></script><script src="track-style.js?v=20261118a"></script><script src="shape-compare.js?v=20261118a"></script><script src="replay-data.js?v=20261118a"></script><script src="replay.js?v=20261118a"></script><script src="motion-model.js?v=20261118a"></script><script src="edge-changes.js?v=20261118a"></script><script src="lab-world.bundle.js?v=20261118a"></script><script src="turn-issues-data.js?v=20261118a"></script><script src="turn-annotations.js?v=20261118a"></script><script src="motion-scene-3d.js?v=20261118a"></script><script src="map-zoom.js?v=20261118a"></script><script src="motion-playback.js?v=20261118a"></script><script src="unified-track.js?v=20261118a"></script><script src="track-camera.js?v=20261118a"></script><script src="best-segment.js?v=20261118a"></script><script src="trajectory-catalog.js?v=20261118a"></script><script src="run-summary.js?v=20261118a"></script><script src="render-task.js?v=20261118a"></script><script src="detail-view.js?v=20261118a"></script><script src="score-app.js?v=20261118a"></script><script src="app-shell.js?v=20261118a"></script>
+</body></html>
