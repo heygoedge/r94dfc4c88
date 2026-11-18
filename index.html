@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN" data-v="20261118e"><head><meta charset="utf-8">
+<html lang="zh-CN" data-v="20261118f"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -8,7 +8,7 @@
 <meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
 <link rel="apple-touch-icon" href="icon-180.png"><link rel="icon" href="icon-180.png"><link rel="manifest" href="manifest.json">
 <title>Heygo</title>
-<link rel="stylesheet" href="app.css?v=20261118e">
+<link rel="stylesheet" href="app.css?v=20261118f">
 </head>
 <body data-phase="boot">
 <canvas id="stage" aria-label="滑行三维回放" role="img"></canvas>
@@ -17,13 +17,15 @@
   <button id="pick" class="glass pill" aria-label="选择回放"><span><b id="who">—</b><small id="seg">—</small></span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
   <button id="reset" class="glass round" aria-label="复位视角" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8a8 8 0 1 1-1 8M5 3v5h5"/></svg></button>
 </header>
-<div id="toast" class="glass" role="status"></div>
+<div id="speedfx" aria-hidden="true"><i></i><i></i></div>
+<div id="callout" role="status"></div>
+<div id="streak" aria-live="polite"></div>
 <section id="intro" aria-label="片头"></section>
 <section class="hud" aria-label="回放控制">
-  <div id="chip" class="glass"></div>
-  <div class="dock glass">
+  <div id="chip"></div>
+  <div class="dock">
     <div class="metrics">
-      <div class="m main"><b id="m-speed">–</b><span><i>km/h</i><em>速度</em></span></div>
+      <div class="m main"><b id="m-speed">–</b><span><i>km/h</i><em>速度</em></span><u id="m-bar" aria-hidden="true"><s></s></u></div>
       <div class="m"><svg id="tilt" viewBox="-14 -14 28 28" aria-hidden="true"><rect x="-11" y="-1.6" width="22" height="3.2" rx="1.6"/></svg><b id="m-edge">–</b><span><i id="m-edge-unit">°</i><em id="m-edge-label">立刃</em></span></div>
       <div class="m"><b id="m-g">–</b><span><i id="m-g-unit">G</i><em id="m-g-label">G 值</em></span></div>
     </div>
@@ -44,5 +46,5 @@
  window.addEventListener('error',function(e){if(e.target&&e.target.tagName==='SCRIPT')window.HG_SPLASH_FAIL();},true);
 })();
 </script>
-<script src="app.js?v=20261118e"></script>
+<script src="app.js?v=20261118f"></script>
 </body></html>
